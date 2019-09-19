@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+<head>
+    <title th:text="#{site.welcome}">Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../static/css/core.css" th:href="@{/css/core.css}" rel="stylesheet" media="screen" />
+    <script src="/webjars/jquery/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+<body>
+<div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Static header</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="content">
+    <img class="thymeleaf-logo" th:src="@{/image/thymeleaf_logo_transparent.png}"
+         src="../static/image/thymeleaf_logo_transparent.png" alt="">
+    <div class="hero-unit">
+        <h1 th:text="#{site.title}">Test</h1>
+        <p>
+            Welcome to my bookshelf! The time now is:
+            <strong th:text="${#temporals.format(now, 'dd/MM/yyyy HH:mm')}">04/07/2019 16:00</strong>
+        </p>
+    </div>
+    <div style="margin-top: 50px; ">
+        <h2 style="font-size: 26px; ">BookList</h2>
+        <table class="book-table">
+            <thead align="center">
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book:${books}" th:id="${#ids.seq('book')}" th:object="${book}">
+                    <td style="width: 40px; ">
+                        <label th:for="${#ids.prev('book')}" th:text="${#ids.prev('book').substring(4)}">1</label>
+                    </td>
+                    <td th:text="*{title}">And Then There Were None</td>
+                    <td th:text="*{author}">Agatha Christie</td>
+                    <td th:text="*{category}">	Mysteries</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</th:block>
+</body>
+</html>

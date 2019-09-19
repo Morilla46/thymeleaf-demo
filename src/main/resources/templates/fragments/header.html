@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="/webjars/jquery/jquery.min.js" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top" th:fragment="header" style="background-color: #005f0f">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="header-brand" th:text="${project}">My project</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
