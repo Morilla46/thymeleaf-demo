@@ -23,7 +23,7 @@
         <thymeleaf-extras-java8time.version>3.0.0.RELEASE</thymeleaf-extras-java8time.version>
         <thymeleaf-layout-dialect.version>2.2.2</thymeleaf-layout-dialect.version>
         
-        <webjars.bootstrap.version>3.3.7</webjars.bootstrap.version>
+        <webjars.bootstrap.version>3.4.1</webjars.bootstrap.version>
 		<webjars.jquery.version>3.2.1</webjars.jquery.version>
     </properties>
 
